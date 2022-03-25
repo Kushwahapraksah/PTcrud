@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="comp_detailModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="admindetail">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="usr_name" Type="varchar" MaxLength="50" />
+          <Property Name="pass" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="empl_dtl">
+          <Key>
+            <PropertyRef Name="Emp_id" />
+          </Key>
+          <Property Name="Emp_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Emp_name" Type="varchar" MaxLength="40" />
+          <Property Name="mb_no" Type="bigint" />
+          <Property Name="email" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityContainer Name="comp_detailModelStoreContainer">
+          <EntitySet Name="admindetail" EntityType="Self.admindetail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="empl_dtl" EntityType="Self.empl_dtl" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="comp_detailModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="empl_dtl">
+          <Key>
+            <PropertyRef Name="Emp_id" />
+          </Key>
+          <Property Name="Emp_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Emp_name" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="mb_no" Type="Int64" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityContainer Name="comp_detailEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="empl_dtl" EntityType="Self.empl_dtl" />
+          <EntitySet Name="admindetails" EntityType="comp_detailModel.admindetail" />
+        </EntityContainer>
+        <EntityType Name="admindetail">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="usr_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="pass" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="comp_detailModelStoreContainer" CdmEntityContainer="comp_detailEntities">
+          <EntitySetMapping Name="empl_dtl">
+            <EntityTypeMapping TypeName="comp_detailModel.empl_dtl">
+              <MappingFragment StoreEntitySet="empl_dtl">
+                <ScalarProperty Name="Emp_id" ColumnName="Emp_id" />
+                <ScalarProperty Name="Emp_name" ColumnName="Emp_name" />
+                <ScalarProperty Name="mb_no" ColumnName="mb_no" />
+                <ScalarProperty Name="email" ColumnName="email" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="admindetails">
+            <EntityTypeMapping TypeName="comp_detailModel.admindetail">
+              <MappingFragment StoreEntitySet="admindetail">
+                <ScalarProperty Name="pass" ColumnName="pass" />
+                <ScalarProperty Name="usr_name" ColumnName="usr_name" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

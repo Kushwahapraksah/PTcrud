@@ -1,0 +1,66 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+@{ Layout = null;}
+
+<link href="~/Content/tempcss/css/bootstrap.min.css" rel="stylesheet" />
+<link href="~/Content/tempcss/css/metisMenu.min.css" rel="stylesheet" />
+<link href="~/Content/tempcss/css/startmin.css" rel="stylesheet" />
+<link href="~/Content/tempcss/css/font-awesome.min.css" rel="stylesheet" />
+
+@model PTcrud.Models.adminmodel 
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-4 col-md-offset-4">
+            <div class="login-panel panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Please Sign In</h3>
+                </div>
+
+               
+                <div class="panel-body">
+                    @using (Html.BeginForm("Index", "Home", FormMethod.Post))
+                    {
+
+                        <fieldset>
+                            <div class="danger">@TempData["invalidemail"]</div>
+                            <div class="danger">@TempData["wrngpawrd"]</div>
+
+                            <div class="form-group">
+                                @Html.TextBoxFor(m => m.usr_name, new { @class = "form-control", @placeholder = "Usr_name" })
+                                @Html.ValidationMessageFor(m => m.usr_name, "", new { @class = "error" })
+                            </div>
+                            <div class="form-group">
+                                @Html.PasswordFor(m => m.pass, new { @class = "form-control", @placeholder = "Password" })
+                                @Html.ValidationMessageFor(m => m.usr_name, "", new { @class = "error" })
+                            </div>
+                            <div class="checkbox">
+                                <label>
+                                    <input name="remember" type="checkbox" value="Remember Me">Remember Me
+                                </label>
+                            </div>
+                            <!-- Change this to a button or input when using this as a form -->
+                            <button type="submit" class="btn btn-success">Sign In</button>
+
+
+
+
+
+                        </fieldset>
+                    }
+                    <div>
+                        <li>
+                            <a href="@Url.Action("usrregister","Home")"><i class="fa fa-edit fa-fw"></i> SignUp</a>
+                        </li>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+

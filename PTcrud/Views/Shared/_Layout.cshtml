@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    
+    @*use al css*@
+<link href="~/Content/tempcss/css/bootstrap.min.css" rel="stylesheet" />
+<link href="~/Content/tempcss/css/metisMenu.min.css" rel="stylesheet" />
+<link href="~/Content/tempcss/css/timeline.css" rel="stylesheet" />
+<link href="~/Content/tempcss/css/startmin.css" rel="stylesheet" />
+<link href="~/Content/tempcss/css/morris.css" rel="stylesheet" />
+<link href="~/Content/tempcss/css/font-awesome.min.css" rel="stylesheet" />
+
+
+
+
+
+</head>
+<body>
+   
+    <div id="wrapper">
+
+        @Html.Partial("Mypartial");
+
+        @RenderBody()
+
+
+    </div>
+
+    @*use all js here*@
+<script src="~/Scripts/tempjs/js/jquery.min.js"></script>
+<script src="~/Scripts/tempjs/js/bootstrap.min.js"></script>
+<script src="~/Scripts/tempjs/js/metisMenu.min.js"></script>
+<script src="~/Scripts/tempjs/js/raphael.min.js"></script>
+<script src="~/Scripts/tempjs/js/morris.min.js"></script>
+<script src="~/Scripts/tempjs/js/morris-data.js"></script>
+<script src="~/Scripts/tempjs/js/startmin.js"></script>
+    
+</body>
+</html>
